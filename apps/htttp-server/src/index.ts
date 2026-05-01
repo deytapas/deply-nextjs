@@ -5,12 +5,16 @@ import { prisma } from "@repo/db/client"
 import express from "express";
 
 const app = express();
+app.use(express.json())
 
-app.get("/", async (req, res) => {
+app.post("/", async (req, res) => {
+
+    const username = req.body.username;
+    const password = req.body.password;
     const response = await prisma.user.create({
         data: {
-            username: Math.random().toString(),
-            password: Math.random().toString()
+            username: username,
+            password: password
         }
     })
 
