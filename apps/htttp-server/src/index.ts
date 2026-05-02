@@ -9,21 +9,20 @@ app.use(express.json())
 
 app.post("/", async (req, res) => {
 
-    const username = req.body.username;
-    const password = req.body.password;
-    const response = await prisma.user.create({
-        data: {
-            username: username,
-            password: password
-        }
-    })
+    try {
+        const user = await prisma.user.create({
+            data: {
+                username: "Cohot-3-room-5-prod",
+                password: "djgbjkg"
+            }
+        });
 
-    
-
-    res.json({
-        message: "data saved",
-        id: response.id
-    })
+        console.log(user);
+    } catch (e: any) {
+        console.error("ERROR OBJECT:", e);
+        console.error("ERROR CODE:", e.code);
+        console.error("ERROR META:", e.meta);
+    }
 })
 
 app.listen(3001);
