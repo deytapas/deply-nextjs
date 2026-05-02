@@ -8,7 +8,8 @@ const app = express();
 app.use(express.json())
 
 app.post("/", async (req, res) => {
-
+    console.log("DB URL:", process.env.DATABASE_URL);
+    
     try {
         const user = await prisma.user.create({
             data: {
@@ -22,6 +23,9 @@ app.post("/", async (req, res) => {
         console.error("ERROR OBJECT:", e);
         console.error("ERROR CODE:", e.code);
         console.error("ERROR META:", e.meta);
+        res.json({
+            meaasge: "error"
+        })
     }
 })
 
