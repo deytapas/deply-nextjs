@@ -23,7 +23,10 @@ app.post("/sign", async (req, res) => {
                 password: "djgbjkg"
             }
         });
-
+        res.json({
+            message: "Saved successful",
+            userID: user.id
+        })
         console.log(user);
     } catch (e: any) {
         console.error("ERROR OBJECT:", e);
