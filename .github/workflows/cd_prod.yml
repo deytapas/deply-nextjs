@@ -4,7 +4,7 @@ name:
       branches: [ main ]
 
   jobs:
-    redeply_everything
+    redeply_everything:
       runs-on: ubuntu-latest
       name: Deploying everything to the staging server
       steps:
