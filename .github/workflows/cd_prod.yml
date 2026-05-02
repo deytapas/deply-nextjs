@@ -15,4 +15,4 @@ jobs:
           touch /home/runner/.ssh/known_hosts
           echo "${{ secrets.known_hosts }}" &> /home/runner/.ssh/known_hosts
           chmod 700 /home/runner/ssh_key
-          ssh -i ~/ssh_key root@159.89.163.120 -t "cd deply-nextjs/ && git pull origin main && export PATH=/root/.nvm/versions/node/v22.13.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && npm install -g pnpm && pnpm install && pnpm run build && pm2 restart web-server && pm2 restart http-server && pm2 restart ws-server"   
+          ssh -i ~/ssh_key root@159.89.163.120 -t "cd deply-nextjs/ && git pull origin main && export PATH=/root/.nvm/versions/node/v24.15.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && npm install -g pnpm && pnpm install && pnpm run build && pm2 restart web-server && pm2 restart http-server && pm2 restart ws-server"   
