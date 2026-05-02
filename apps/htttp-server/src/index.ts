@@ -19,8 +19,8 @@ app.post("/sign", async (req, res) => {
     try {
         const user = await prisma.user.create({
             data: {
-                username: "Cohot-3-room-5-prod",
-                password: "djgbjkg"
+                username: req.body.username,
+                password: req.body.password
             }
         });
         res.json({
