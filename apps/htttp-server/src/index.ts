@@ -7,7 +7,13 @@ import express from "express";
 const app = express();
 app.use(express.json())
 
-app.post("/", async (req, res) => {
+app.get('/', (req, res) => {
+    res.send({
+        message: "Welcome to Http Server"
+    })
+})
+
+app.post("/sign", async (req, res) => {
     console.log("DB URL:", process.env.DATABASE_URL);
     
     try {
